@@ -1,0 +1,47 @@
+ALGORITHM insertionsort
+VAR
+//table to be sorted
+t:ARRAY_OF INTEGER[100];
+//sorted table
+s:ARRAY_OF INTEGER[100];
+ n,i,r=INTEGER;
+BEGIN
+//get the number of elements in the table
+Write("enter the number  of elements in the table");
+Read(n);
+//get the elements of the table
+FOR i FROM 0 TO n-1 STEP 1  DO
+    Read(t[i]);
+END_FOR
+//insertion and sorting
+FOR i FROM 0 TO l-1 STEP 1  DO
+r=ranking(s,t[i]);
+push(r,t[i],s);
+END_FOR
+END
+//return the ranking of an element in a table
+FUNCTION ranking(tab:ARRAY_OF INTEGER,e:INTEGER) : INTEGER
+VAR
+    i,r:INTEGER;
+BEGIN
+r=0;
+FOR i FROM 1 TO tab.length-1 STEP 1  DO
+    IF (tab[i]<e) THEN
+        r:=r+1;
+    END_IF
+END_FOR
+RETURN r;
+END
+//push the element of a table to the right and insert an element at the index case
+PROCEDURE push(index,e:INTEGER,var tab:ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+i:=tab.length;
+   REPEAT
+       tab[i]=tab[i-1];
+       i=i-1;
+   UNTIL (i=index)
+tab[index]=e;
+END
+
